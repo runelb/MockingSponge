@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mocking SpongeBob</string>
+    <string name="app_name">Sarcastic Sponge</string>
     <string name="input_hint">Normal voice</string>
     <string name="button">Go!</string>
 </resources>
