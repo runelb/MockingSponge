@@ -19,18 +19,23 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayActivity.class);
         EditText editText = (EditText) findViewById(R.id.editText);
         String message = editText.getText().toString();
-/*
+
         if (message.length() > 0) { // avoid trouble
-            message = message.trim();   // avoid trouble
             String[] words = message.split(" ");
+            message = "";
             for (int i = 0; i < words.length; i++) {
                 for (int j = 0; j < words[i].length(); j++) {
-                    if((j % 2) == 0)
-                        words[i].substring(j, j + 1);
+                    if ((j % 2) == 0 || words[i].substring(j, j + 1).equals("i") || words[i].substring(j, j + 1).equals("I") ) {
+                        words[i] = words[i].substring(0, j) + words[i].substring(j, j + 1).toLowerCase() + words[i].substring(j + 1);
+                    } else {
+                        words[i] = words[i].substring(0, j) + words[i].substring(j, j + 1).toUpperCase() + words[i].substring(j + 1);
+                    }
                 }
+                message = message + " " + words[i];
             }
+            message = message.trim();
         }
-*/
+
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
